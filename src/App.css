@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    background-color: #f4f4f4;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-right: 1px solid #ccc;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #333;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+.sidebar a:hover {
+    background-color: #ddd;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 3fr;
+    grid-gap: 10px;
+    width: 85%;
+    padding: 20px;
+}
+
+.info-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e6f7ff;
+    border: 1px solid #007bff;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.chart {
+    grid-column: 1 / span 3;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.toggle-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.toggle-buttons div {
+    background-color: #fff3e6;
+    border: 1px solid #ff7f50;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 16px;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+/* Icon dashboard */
+.info-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e6f7ff;
+    border: 1px solid #007bff;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    position: relative;
+}
+
+.info-icon {
+    font-size: 24px;
+    /* Điều chỉnh kích thước của icon */
+    color: #007bff;
+    /* Màu sắc của icon */
+    margin-bottom: 10px;
+}
+
+
+/*Phân trang */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: #0056b3;
+}
+
+.pagination button:hover {
+    background-color: #0056b3;
+}
+
+.pagination button[disabled] {
+    background-color: #e6e6e6;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* Action History */
+.action-history {
+    padding: 20px;
+    width: 85%;
+}
+
+.action-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.action-table th,
+.action-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.action-table th {
+    background-color: #f4f4f4;
+}
+
+.action-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.action-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: #0056b3;
+}
+
+.pagination button:hover {
+    background-color: #0056b3;
+}
+
+.pagination button[disabled] {
+    background-color: #e6e6e6;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* Profile */
+.profile-page {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85%;
+}
+
+.profile-info {
+    text-align: center;
+    background-color: #e6f7ff;
+    border: 1px solid #007bff;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-avatar {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+}
+
+.profile-name,
+.profile-id {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.profile-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.profile-link:hover {
+    text-decoration: underline;
+}
+
+.profile-avatar {
+    width: 150px;
+    /* Kích thước ảnh */
+    height: 150px;
+    /* Kích thước ảnh */
+    border-radius: 50%;
+    /* Làm cho ảnh tròn */
+    object-fit: cover;
+    /* Đảm bảo ảnh không bị méo */
+    margin-bottom: 20px;
+    /* Khoảng cách dưới ảnh */
+}
