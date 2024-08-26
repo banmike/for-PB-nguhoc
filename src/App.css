@@ -37,28 +37,14 @@
 
 .dashboard {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 3fr;
+    grid-template-columns: 7fr 3fr;
     grid-gap: 10px;
     width: 85%;
     padding: 20px;
 }
 
-.info-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #e6f7ff;
-    border: 1px solid #007bff;
-    padding: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 8px;
-}
-
 .chart {
-    grid-column: 1 / span 3;
+    grid-column: 1 / 2;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     display: flex;
@@ -69,10 +55,15 @@
 }
 
 .toggle-buttons {
+    grid-column: 2 / 3;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
 .toggle-buttons div {
@@ -88,9 +79,49 @@
     font-size: 16px;
 }
 
-input[type="checkbox"] {
-    width: 20px;
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
     height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #007bff;
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
 }
 
 /* Icon dashboard */
@@ -110,56 +141,44 @@ input[type="checkbox"] {
 
 .info-icon {
     font-size: 24px;
-    /* Điều chỉnh kích thước của icon */
     color: #007bff;
-    /* Màu sắc của icon */
     margin-bottom: 10px;
 }
 
-
-/*Phân trang */
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+/* Thêm màu tượng trưng cho các ô Temperature, Humidity, Light */
+.temp-box {
+    background-color: #ffcccc;
+    /* Màu đỏ nhạt cho ô Temperature */
+    border-color: #ff6666;
 }
 
-.pagination button {
-    background-color: #007bff;
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    margin: 0 5px;
-    border-radius: 5px;
-    cursor: pointer;
+.humidity-box {
+    background-color: #ccffcc;
+    /* Màu xanh nhạt cho ô Humidity */
+    border-color: #66cc66;
 }
 
-.pagination button.active {
-    background-color: #0056b3;
+.light-box {
+    background-color: #ffffcc;
+    /* Màu vàng nhạt cho ô Light */
+    border-color: #cccc66;
 }
 
-.pagination button:hover {
-    background-color: #0056b3;
-}
-
-.pagination button[disabled] {
-    background-color: #e6e6e6;
-    color: #999;
-    cursor: not-allowed;
-}
-
-/* Action History */
-.action-history {
+/* DataSensor & Action History */
+.table-container {
     padding: 20px;
     width: 85%;
 }
 
+.data-table,
 .action-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
 
+.data-table th,
+.data-table td,
 .action-table th,
 .action-table td {
     border: 1px solid #ddd;
@@ -167,18 +186,22 @@ input[type="checkbox"] {
     text-align: left;
 }
 
+.data-table th,
 .action-table th {
     background-color: #f4f4f4;
 }
 
+.data-table tr:nth-child(even),
 .action-table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
+.data-table tr:hover,
 .action-table tr:hover {
     background-color: #f1f1f1;
 }
 
+/* Pagination */
 .pagination {
     display: flex;
     justify-content: center;
@@ -255,13 +278,8 @@ input[type="checkbox"] {
 
 .profile-avatar {
     width: 150px;
-    /* Kích thước ảnh */
     height: 150px;
-    /* Kích thước ảnh */
     border-radius: 50%;
-    /* Làm cho ảnh tròn */
     object-fit: cover;
-    /* Đảm bảo ảnh không bị méo */
     margin-bottom: 20px;
-    /* Khoảng cách dưới ảnh */
 }

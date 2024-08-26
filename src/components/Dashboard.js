@@ -9,13 +9,11 @@ const Dashboard = () => {
   const [light, setLight] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTemp(Math.floor(Math.random() * 100));
-      setHumidity(Math.floor(Math.random() * 100));
-      setLight(Math.floor(Math.random() * 100));
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+    // Tạo giá trị ngẫu nhiên chỉ một lần khi component được mount
+    setTemp(Math.floor(Math.random() * 100));
+    setHumidity(Math.floor(Math.random() * 100));
+    setLight(Math.floor(Math.random() * 100));
+  }, []); // Dependency array rỗng đảm bảo useEffect chỉ chạy một lần khi component mount
 
   return (
     <div className="dashboard">

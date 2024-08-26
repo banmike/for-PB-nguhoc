@@ -7,21 +7,30 @@ const ToggleButtons = () => {
 
   return (
     <div className="toggle-buttons">
-      <div>
+      <div className="toggle-container">
         <span>Power</span>
-        <input
-          type="checkbox"
-          checked={power}
-          onChange={() => setPower(!power)}
-        />
+        <label className="switch">
+          <input
+            type="checkbox"
+            checked={power}
+            onChange={() => setPower(!power)}
+          />
+          <span className="slider"></span>
+        </label>
       </div>
-      <div>
+      <div className="toggle-container">
         <span>Fan</span>
-        <input type="checkbox" checked={fan} onChange={() => setFan(!fan)} />
+        <label className="switch">
+          <input type="checkbox" checked={fan} onChange={() => setFan(!fan)} />
+          <span className="slider"></span>
+        </label>
       </div>
-      <div>
+      <div className="toggle-container">
         <span>AC</span>
-        <input type="checkbox" checked={ac} onChange={() => setAc(!ac)} />
+        <label className="switch">
+          <input type="checkbox" checked={ac} onChange={() => setAc(!ac)} />
+          <span className="slider"></span>
+        </label>
       </div>
     </div>
   );
