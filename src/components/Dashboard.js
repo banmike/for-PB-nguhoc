@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaTemperatureHigh, FaWater, FaSun } from "react-icons/fa"; // Import các icon từ react-icons
 import Chart from "./Chart"; // Sử dụng component Chart mới
 import ToggleButtons from "./ToggleButtons";
+import LineChart from "./ChartLine";
 
 const Dashboard = () => {
   const [temp, setTemp] = useState(0);
@@ -21,38 +22,44 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="dashboard">
-      <div
-        className="info-box"
-        style={{
-          backgroundColor: `hsl(0, 100%, ${getLightness(temp)}%)`, // Màu đỏ cho Temperature
-        }}
-      >
-        <FaTemperatureHigh className="info-icon" />
-        <span>Temp</span>
-        <span>{temp}°C</span>
+    <div className="main-right">
+      <div className="dashboard">
+        <div className="dashboard-sidebar">
+          <div
+            className="info-box"
+            style={{
+              backgroundColor: `hsl(0, 100%, ${getLightness(temp)}%)`, // Màu đỏ cho Temperature
+            }}
+          >
+            <FaTemperatureHigh className="info-icon" />
+            <span>Temp</span>
+            <span>{temp}°C</span>
+          </div>
+          <div
+            className="info-box"
+            style={{
+              backgroundColor: `hsl(120, 100%, ${getLightness(humidity)}%)`, // Màu xanh cho Humidity
+            }}
+          >
+            <FaWater className="info-icon" />
+            <span>Humidity</span>
+            <span>{humidity}%</span>
+          </div>
+          <div
+            className="info-box"
+            style={{
+              backgroundColor: `hsl(60, 100%, ${getLightness(light)}%)`, // Màu vàng cho Light
+            }}
+          >
+            <FaSun className="info-icon" />
+            <span>Light</span>
+            <span>{light} Lux</span>
+          </div>
+        </div>
+        <div className="chart-line">
+          <LineChart />
+        </div>
       </div>
-      <div
-        className="info-box"
-        style={{
-          backgroundColor: `hsl(120, 100%, ${getLightness(humidity)}%)`, // Màu xanh cho Humidity
-        }}
-      >
-        <FaWater className="info-icon" />
-        <span>Humidity</span>
-        <span>{humidity}%</span>
-      </div>
-      <div
-        className="info-box"
-        style={{
-          backgroundColor: `hsl(60, 100%, ${getLightness(light)}%)`, // Màu vàng cho Light
-        }}
-      >
-        <FaSun className="info-icon" />
-        <span>Light</span>
-        <span>{light} Lux</span>
-      </div>
-      <Chart temp={temp} humidity={humidity} light={light} />
       <ToggleButtons />
     </div>
   );
